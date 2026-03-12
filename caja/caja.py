@@ -1,24 +1,26 @@
-print("Bienvenido a Riwistore")
+print("Bienvenido a Riwistore") #mensaje de bienvenida
+from inventario import obtener_input_valido #importacion del inventario
 
-def calcular_total(precio, cantidad):
-    precio = float(precio)
-    cantidad = int(cantidad)
+def costo_total(precio, cantidad): #variable definida
     return precio * cantidad
 
 total_general = 0
-
-continuar = "si"  # Para que entre al bucle la primera vez
+continuar = "si" #condicional para continuar el ciclo
 
 while continuar.lower() == "si":
-    nombre = input("Ingresar nombre de producto: ")
-    precio = input("Ingresar Precio: ")
-    cantidad = input("Ingresar cantidad del producto: ")
+    nombre = input("Ingresar nombre de producto: ").strip()
+    precio = obtener_input_valido("Ingresar Precio: ", float)
+    cantidad = obtener_input_valido("Ingresar cantidad del producto: ", int)
     
-    subtotal = calcular_total(precio, cantidad)
-    total_general += subtotal
+    subtotal = costo_total(precio, cantidad)
+    total_general += subtotal  # ← Acumulado de los productos aquí
     
-    print(f"Producto: {nombre}, Subtotal: {subtotal}")
+    print(f"Producto: {nombre}")
+    print(f"Precio unitario: ${precio:.2f}")
+    print(f"Cantidad: {cantidad}")
+    print(f"Subtotal: ${subtotal:.2f}\n")
     
-    continuar = input("¿Deseas agregar otro artículo? (si/no): ")
+    # mostrar resumen de la compra
+    continuar = input("¿Deseas agregar otro artículo? (si/no): ") #condicional ejecutandose
 
-print(f"Total general a pagar: {total_general}")
+print(f"Total general a pagar: ${total_general:.2f}")  # ← Muestra del total.
