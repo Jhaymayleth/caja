@@ -1,35 +1,21 @@
-A simple Python program that simulates a shopping cart for Riwistore. Enter products, prices, and quantities to calculate your total bill!
+# Riwistore
 
-🎯 What it does
-Add multiple products with name, price, and quantity
+## Description
 
-Calculate subtotal for each item automatically
+Riwistore is a command-line shopping cart application designed for managing product purchases. The application is built to calculate subtotals and accumulate a grand total for multiple items efficiently. It provides a user-friendly interface for adding products until the user decides to finalize the purchase.
 
-Keep a running total
+## How it works
 
-Interactive loop to add more items or finish shopping
+1. The program displays a welcome message and imports the `obtener_input_valido` function from the `inventario` module to handle user input validation.
 
-📋 Demo
-text
-Bienvenido a Riwistore
-Ingresar nombre de producto: Laptop
-Ingresar Precio: 1500
-Ingresar cantidad del producto: 1
-Producto: Laptop, Subtotal: 1500.0
-¿Deseas agregar otro artículo? (si/no): si
+2. It defines the `costo_total` function, which multiplies the price by quantity to calculate each item's subtotal.
 
-Ingresar nombre de producto: Mouse
-Ingresar Precio: 25
-Ingresar cantidad del producto: 2
-Producto: Mouse, Subtotal: 50.0
-¿Deseas agregar otro artículo? (si/no): no
-Total general a pagar: 1550.0
-🛠️ How to use
-Save the code as riwistore.py
+3. The main loop runs while the user enters "si" (yes), prompting for product name, price, and quantity with input validation.
 
-Run: python riwistore.py
+4. For each item, the program calculates the subtotal using `costo_total`, adds it to `total_general`, and displays the product details.
 
-Follow the prompts to add products
+5. After each item, it asks if the user wants to add another article; the loop continues based on the response.
 
-Type si to add more, no to finish
+6. When the user enters "no", the program exits the loop and displays the final total to pay.
 
+> **Status**: The application is fully functional and currently processes multiple products while accumulating the grand total accurately.
